@@ -168,16 +168,24 @@ section{padding-block:clamp(60px,9vw,108px)}
 .feel .s-head h2{color:#fff}.feel .s-head p{color:color-mix(in srgb,#fff 78%,transparent)}
 .feel .eyebrow{color:var(--arena-soft)}.feel .eyebrow::before{background:var(--arena)}
 .feel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px}
-.mask{
-  background:color-mix(in srgb,#fff 6%,transparent);
-  border:1px solid color-mix(in srgb,#fff 12%,transparent);
-  border-radius:18px;padding:26px 20px;text-align:center;
-  transition:transform var(--t-rapida),background var(--t-rapida),border-color var(--t-rapida);
-}
-.mask:hover{transform:translateY(-6px);background:color-mix(in srgb,var(--verde) 38%,transparent);border-color:var(--verde)}
-.mask .msk{width:66px;height:auto;margin:0 auto 14px;display:block;transition:transform var(--t-rapida)}
-.mask:hover .msk{transform:scale(1.08) rotate(-3deg)}
-.mask b{font-family:"Fraunces",serif;font-weight:500;font-size:1.18rem;display:block}
+.mask{background:none;border:0;padding:0;min-height:228px;perspective:1100px;cursor:pointer;outline:none}
+.mask-inner{position:relative;width:100%;height:100%;min-height:228px;transition:transform .6s cubic-bezier(.2,0,0,1);transform-style:preserve-3d}
+.mask:not(.flipped):hover .mask-inner{transform:translateY(-6px)}
+.mask.flipped .mask-inner{transform:rotateY(180deg)}
+.mask:focus-visible .mask-inner{box-shadow:0 0 0 3px var(--arena-soft);border-radius:18px}
+.mask-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  border-radius:18px;padding:20px 16px;text-align:center;
+  -webkit-backface-visibility:hidden;backface-visibility:hidden;
+  background:color-mix(in srgb,#fff 6%,transparent);border:1px solid color-mix(in srgb,#fff 12%,transparent)}
+.mask-front{transition:background var(--t-rapida),border-color var(--t-rapida)}
+.mask:hover .mask-front{background:color-mix(in srgb,var(--verde) 30%,transparent);border-color:var(--verde)}
+.mask-back{transform:rotateY(180deg);background:color-mix(in srgb,var(--verde) 40%,transparent);border-color:var(--verde)}
+.mask .msk{width:62px;height:auto;display:block;transition:transform var(--t-rapida)}
+.mask:hover .mask-front .msk{transform:scale(1.06) rotate(-3deg)}
+.mask b{font-family:"Fraunces",serif;font-weight:500;font-size:1.16rem;display:block;color:#fff}
+.flip-hint{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--arena-soft);opacity:.85}
+.mask-back p{font-size:.82rem;line-height:1.42;color:#fff;margin:0}
+.mask-back .ej{font-size:.72rem;line-height:1.35;color:var(--arena-soft);font-style:italic}
 .feel .def{
   margin-top:40px;max-width:60ch;font-size:1.18rem;line-height:1.7;
   font-family:"Fraunces",serif;font-style:italic;color:#fff;
@@ -437,109 +445,179 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
       <p>Todos cargamos con sentimientos que, sin darnos cuenta, empiezan a gobernar nuestras decisiones y nuestra paz. Reconocerlos es el primer paso.</p>
     </div>
     <div class="feel-grid">
-      <!-- Los 7 sentimientos del material de NA, cada uno con su máscara expresiva -->
-      <div class="mask reveal d1">
-        <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
-          <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#E8A87C" stroke="#241F1A" stroke-width="1.5"/>
-          <ellipse cx="19" cy="31" rx="5" ry="6" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <ellipse cx="37" cy="31" rx="5" ry="6" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <circle cx="19" cy="30" r="2" fill="#241F1A"/><circle cx="37" cy="30" r="2" fill="#241F1A"/>
-          <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
-            <path d="M12 25 23 21"/><path d="M33 21 44 25"/>
-            <path d="M18 48q3-3 5 0 2 3 5 0 3-3 5 0"/>
-          </g>
-          <path d="M45 19q3 4 0 6-3-2 0-6" fill="#6FA8C7"/>
-        </svg>
-        <b>Ansiedad</b>
+      <!-- Los 7 sentimientos. Cada tarjeta GIRA al tocarla y muestra cómo se manifiesta + un ejemplo. -->
+      <div class="mask reveal d1" tabindex="0" role="button" aria-pressed="false" aria-label="Ansiedad. Toca para ver un ejemplo">
+        <div class="mask-inner">
+          <div class="mask-face mask-front">
+            <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
+              <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#E8A87C" stroke="#241F1A" stroke-width="1.5"/>
+              <ellipse cx="19" cy="31" rx="5" ry="6" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <ellipse cx="37" cy="31" rx="5" ry="6" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <circle cx="19" cy="30" r="2" fill="#241F1A"/><circle cx="37" cy="30" r="2" fill="#241F1A"/>
+              <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
+                <path d="M12 25 23 21"/><path d="M33 21 44 25"/>
+                <path d="M18 48q3-3 5 0 2 3 5 0 3-3 5 0"/>
+              </g>
+              <path d="M45 19q3 4 0 6-3-2 0-6" fill="#6FA8C7"/>
+            </svg>
+            <b>Ansiedad</b>
+            <span class="flip-hint">ver ejemplo ↻</span>
+          </div>
+          <div class="mask-face mask-back">
+            <b>Ansiedad</b>
+            <p>Sensación constante de que algo malo va a pasar, aunque todo esté en calma.</p>
+            <span class="ej">Ej.: el pecho apretado y la mente acelerada antes de una llamada normal.</span>
+          </div>
+        </div>
       </div>
-      <div class="mask reveal d1">
-        <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
-          <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#D55B52" stroke="#241F1A" stroke-width="1.5"/>
-          <ellipse cx="19" cy="32" rx="5" ry="4" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <ellipse cx="37" cy="32" rx="5" ry="4" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <circle cx="20" cy="32" r="2" fill="#241F1A"/><circle cx="36" cy="32" r="2" fill="#241F1A"/>
-          <rect x="18" y="46" width="20" height="8" rx="2" fill="#fff" stroke="#241F1A" stroke-width="1.2"/>
-          <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
-            <path d="M12 23 24 28"/><path d="M32 28 44 23"/>
-            <path d="M24 46v8M28 46v8M32 46v8"/>
-          </g>
-        </svg>
-        <b>Ira</b>
+      <div class="mask reveal d1" tabindex="0" role="button" aria-pressed="false" aria-label="Ira. Toca para ver un ejemplo">
+        <div class="mask-inner">
+          <div class="mask-face mask-front">
+            <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
+              <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#D55B52" stroke="#241F1A" stroke-width="1.5"/>
+              <ellipse cx="19" cy="32" rx="5" ry="4" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <ellipse cx="37" cy="32" rx="5" ry="4" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <circle cx="20" cy="32" r="2" fill="#241F1A"/><circle cx="36" cy="32" r="2" fill="#241F1A"/>
+              <rect x="18" y="46" width="20" height="8" rx="2" fill="#fff" stroke="#241F1A" stroke-width="1.2"/>
+              <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
+                <path d="M12 23 24 28"/><path d="M32 28 44 23"/>
+                <path d="M24 46v8M28 46v8M32 46v8"/>
+              </g>
+            </svg>
+            <b>Ira</b>
+            <span class="flip-hint">ver ejemplo ↻</span>
+          </div>
+          <div class="mask-face mask-back">
+            <b>Ira</b>
+            <p>Un enojo que estalla más fuerte de lo que la situación merece y cuesta frenar.</p>
+            <span class="ej">Ej.: gritas o azotas la puerta por algo pequeño y luego te arrepientes.</span>
+          </div>
+        </div>
       </div>
-      <div class="mask reveal d2">
-        <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
-          <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#E6C79C" stroke="#241F1A" stroke-width="1.5"/>
-          <circle cx="19" cy="30" r="6" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <circle cx="37" cy="30" r="6" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <circle cx="19" cy="30" r="2.4" fill="#241F1A"/><circle cx="37" cy="30" r="2.4" fill="#241F1A"/>
-          <ellipse cx="28" cy="49" rx="5" ry="7" fill="#241F1A"/>
-          <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
-            <path d="M12 21q5-4 11 0"/><path d="M33 21q6-4 11 0"/>
-          </g>
-        </svg>
-        <b>Temor</b>
+      <div class="mask reveal d2" tabindex="0" role="button" aria-pressed="false" aria-label="Temor. Toca para ver un ejemplo">
+        <div class="mask-inner">
+          <div class="mask-face mask-front">
+            <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
+              <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#E6C79C" stroke="#241F1A" stroke-width="1.5"/>
+              <circle cx="19" cy="30" r="6" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <circle cx="37" cy="30" r="6" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <circle cx="19" cy="30" r="2.4" fill="#241F1A"/><circle cx="37" cy="30" r="2.4" fill="#241F1A"/>
+              <ellipse cx="28" cy="49" rx="5" ry="7" fill="#241F1A"/>
+              <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
+                <path d="M12 21q5-4 11 0"/><path d="M33 21q6-4 11 0"/>
+              </g>
+            </svg>
+            <b>Temor</b>
+            <span class="flip-hint">ver ejemplo ↻</span>
+          </div>
+          <div class="mask-face mask-back">
+            <b>Temor</b>
+            <p>Un miedo que paraliza y te impide hacer cosas cotidianas.</p>
+            <span class="ej">Ej.: evitas salir o intentar algo nuevo “por si sale mal”.</span>
+          </div>
+        </div>
       </div>
-      <div class="mask reveal d2">
-        <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
-          <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#CC9A5E" stroke="#241F1A" stroke-width="1.5"/>
-          <ellipse cx="19" cy="31" rx="5" ry="5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <ellipse cx="37" cy="31" rx="5" ry="5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <circle cx="20" cy="32" r="2" fill="#241F1A"/><circle cx="36" cy="32" r="2" fill="#241F1A"/>
-          <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
-            <path d="M13 24 24 26"/><path d="M32 26 43 24"/>
-            <path d="M26 20v5M30 20v5"/>
-            <path d="M20 49q8-4 16 0"/>
-          </g>
-        </svg>
-        <b>Preocupación</b>
+      <div class="mask reveal d2" tabindex="0" role="button" aria-pressed="false" aria-label="Preocupación. Toca para ver un ejemplo">
+        <div class="mask-inner">
+          <div class="mask-face mask-front">
+            <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
+              <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#CC9A5E" stroke="#241F1A" stroke-width="1.5"/>
+              <ellipse cx="19" cy="31" rx="5" ry="5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <ellipse cx="37" cy="31" rx="5" ry="5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <circle cx="20" cy="32" r="2" fill="#241F1A"/><circle cx="36" cy="32" r="2" fill="#241F1A"/>
+              <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
+                <path d="M13 24 24 26"/><path d="M32 26 43 24"/>
+                <path d="M26 20v5M30 20v5"/>
+                <path d="M20 49q8-4 16 0"/>
+              </g>
+            </svg>
+            <b>Preocupación</b>
+            <span class="flip-hint">ver ejemplo ↻</span>
+          </div>
+          <div class="mask-face mask-back">
+            <b>Preocupación</b>
+            <p>Dar vueltas una y otra vez a problemas que todavía no ocurren.</p>
+            <span class="ej">Ej.: no puedes dormir imaginando todo lo que podría salir mal mañana.</span>
+          </div>
+        </div>
       </div>
-      <div class="mask reveal d3">
-        <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
-          <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#7FB069" stroke="#241F1A" stroke-width="1.5"/>
-          <ellipse cx="19" cy="31" rx="5" ry="5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <ellipse cx="37" cy="31" rx="5" ry="5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <circle cx="16" cy="31" r="2" fill="#241F1A"/><circle cx="34" cy="31" r="2" fill="#241F1A"/>
-          <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
-            <path d="M12 25 23 24"/><path d="M33 20 44 24"/>
-            <path d="M19 49q7 3 18-4"/>
-          </g>
-        </svg>
-        <b>Celos</b>
+      <div class="mask reveal d3" tabindex="0" role="button" aria-pressed="false" aria-label="Celos. Toca para ver un ejemplo">
+        <div class="mask-inner">
+          <div class="mask-face mask-front">
+            <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
+              <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#7FB069" stroke="#241F1A" stroke-width="1.5"/>
+              <ellipse cx="19" cy="31" rx="5" ry="5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <ellipse cx="37" cy="31" rx="5" ry="5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <circle cx="16" cy="31" r="2" fill="#241F1A"/><circle cx="34" cy="31" r="2" fill="#241F1A"/>
+              <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
+                <path d="M12 25 23 24"/><path d="M33 20 44 24"/>
+                <path d="M19 49q7 3 18-4"/>
+              </g>
+            </svg>
+            <b>Celos</b>
+            <span class="flip-hint">ver ejemplo ↻</span>
+          </div>
+          <div class="mask-face mask-back">
+            <b>Celos</b>
+            <p>Una desconfianza que duele y te lleva a vigilar o controlar al otro.</p>
+            <span class="ej">Ej.: revisas el teléfono de tu pareja o te molesta que hable con alguien.</span>
+          </div>
+        </div>
       </div>
-      <div class="mask reveal d3">
-        <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
-          <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#B5654A" stroke="#241F1A" stroke-width="1.5"/>
-          <path d="M14 32q5-3 10 0" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <path d="M32 32q5-3 10 0" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <circle cx="19" cy="32" r="1.8" fill="#241F1A"/><circle cx="37" cy="32" r="1.8" fill="#241F1A"/>
-          <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
-            <path d="M12 25 24 25"/><path d="M32 25 44 25"/>
-            <path d="M19 51q9-6 18 0"/>
-          </g>
-        </svg>
-        <b>Resentimiento</b>
+      <div class="mask reveal d3" tabindex="0" role="button" aria-pressed="false" aria-label="Resentimiento. Toca para ver un ejemplo">
+        <div class="mask-inner">
+          <div class="mask-face mask-front">
+            <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
+              <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#B5654A" stroke="#241F1A" stroke-width="1.5"/>
+              <path d="M14 32q5-3 10 0" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <path d="M32 32q5-3 10 0" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <circle cx="19" cy="32" r="1.8" fill="#241F1A"/><circle cx="37" cy="32" r="1.8" fill="#241F1A"/>
+              <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
+                <path d="M12 25 24 25"/><path d="M32 25 44 25"/>
+                <path d="M19 51q9-6 18 0"/>
+              </g>
+            </svg>
+            <b>Resentimiento</b>
+            <span class="flip-hint">ver ejemplo ↻</span>
+          </div>
+          <div class="mask-face mask-back">
+            <b>Resentimiento</b>
+            <p>Rencor guardado por algo que te hicieron y no logras soltar.</p>
+            <span class="ej">Ej.: sigues enojado por algo de hace meses y te amarga el presente.</span>
+          </div>
+        </div>
       </div>
-      <div class="mask reveal d4">
-        <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
-          <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#6FA8C7" stroke="#241F1A" stroke-width="1.5"/>
-          <ellipse cx="19" cy="31" rx="5" ry="5.5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <ellipse cx="37" cy="31" rx="5" ry="5.5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
-          <circle cx="19" cy="32" r="2" fill="#241F1A"/><circle cx="37" cy="32" r="2" fill="#241F1A"/>
-          <path d="M17 37q-2 5 0 7 2-2 0-7" fill="#9AD0EA"/>
-          <path d="M35 37q-2 5 0 7 2-2 0-7" fill="#9AD0EA"/>
-          <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
-            <path d="M12 26 23 22"/><path d="M33 22 44 26"/>
-            <path d="M19 52q9-6 18 0"/>
-          </g>
-        </svg>
-        <b>Conmiseración</b>
+      <div class="mask reveal d4" tabindex="0" role="button" aria-pressed="false" aria-label="Conmiseración. Toca para ver un ejemplo">
+        <div class="mask-inner">
+          <div class="mask-face mask-front">
+            <svg class="msk" viewBox="0 0 56 66" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M27 9c-4-2-2-6 2-5" fill="none" stroke="#CBB994" stroke-width="2" stroke-linecap="round"/>
+              <path d="M28 9C39 9 47 18 47 31 47 47 39 59 28 59 17 59 9 47 9 31 9 18 17 9 28 9Z" fill="#6FA8C7" stroke="#241F1A" stroke-width="1.5"/>
+              <ellipse cx="19" cy="31" rx="5" ry="5.5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <ellipse cx="37" cy="31" rx="5" ry="5.5" fill="#fff" stroke="#241F1A" stroke-width="1.1"/>
+              <circle cx="19" cy="32" r="2" fill="#241F1A"/><circle cx="37" cy="32" r="2" fill="#241F1A"/>
+              <path d="M17 37q-2 5 0 7 2-2 0-7" fill="#9AD0EA"/>
+              <path d="M35 37q-2 5 0 7 2-2 0-7" fill="#9AD0EA"/>
+              <g fill="none" stroke="#241F1A" stroke-width="2" stroke-linecap="round">
+                <path d="M12 26 23 22"/><path d="M33 22 44 26"/>
+                <path d="M19 52q9-6 18 0"/>
+              </g>
+            </svg>
+            <b>Conmiseración</b>
+            <span class="flip-hint">ver ejemplo ↻</span>
+          </div>
+          <div class="mask-face mask-back">
+            <b>Conmiseración</b>
+            <p>Sentir lástima de uno mismo y quedarse en el papel de víctima.</p>
+            <span class="ej">Ej.: piensas “todo me pasa a mí” y sientes que nadie te entiende.</span>
+          </div>
+        </div>
       </div>
     </div>
     <p class="def reveal d2">“Neurótico es cualquier persona cuyas emociones interfieren con su funcionamiento, en cualquier forma y en cualquier grado, siempre y cuando ella lo reconozca.”</p>
@@ -870,6 +948,13 @@ document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
     mo.observe(f);
   } else { load(); }
 })();
+
+/* ---------- girar tarjetas de sentimientos ---------- */
+document.querySelectorAll('.feel-grid .mask').forEach(card=>{
+  const toggle=()=>{ const f=card.classList.toggle('flipped'); card.setAttribute('aria-pressed', f); };
+  card.addEventListener('click',toggle);
+  card.addEventListener('keydown',e=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); } });
+});
 
 document.getElementById('year').textContent = new Date().getFullYear();
 </script>
