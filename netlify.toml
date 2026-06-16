@@ -1,0 +1,4 @@
+[build]
+  publish = "."
+
+# El índice raíz sirve el directorio de negocios; cada negocio vive en su subcarpeta.

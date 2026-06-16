@@ -1,0 +1,9 @@
+# Solo archivos públicos del sitio. Nunca subir artefactos internos.
+PROYECTO.md
+PROYECTO.txt
+pago.json
+recordatorios.txt
+*.flag
+.DS_Store
+Thumbs.db
+desktop.ini
