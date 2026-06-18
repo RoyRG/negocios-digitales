@@ -410,16 +410,16 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 <section class="hero" id="inicio">
   <div class="wrap hero-grid">
     <div class="reveal in">
-      <span class="eyebrow" id="t-eyebrow">Grupo de autoayuda · Gratuito y anónimo</span>
-      <h1 id="t-titulo">Aprende a vivir <em>en paz</em><br>contigo mismo</h1>
-      <p class="lead" id="t-lead">Si la ansiedad, la ira o el miedo influyen en tu vida, no estás solo. En Neuróticos Anónimos encontramos la calma a través de los Doce Pasos, un día a la vez.</p>
+      <span class="eyebrow" data-t="heroEyebrow">Grupo de autoayuda · Gratuito y anónimo</span>
+      <h1 data-t="heroTitulo">Aprende a vivir <em>en paz</em><br>contigo mismo</h1>
+      <p class="lead" data-t="heroLead">Si la ansiedad, la ira o el miedo influyen en tu vida, no estás solo. En Neuróticos Anónimos encontramos la calma a través de los Doce Pasos, un día a la vez.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" id="t-cta1" href="#sesiones">Asiste a una sesión</a>
-        <a class="btn btn-ghost" id="t-cta2" href="#identificas">¿Esto es para mí?</a>
+        <a class="btn btn-primary" data-t="heroCta1" href="#sesiones">Asiste a una sesión</a>
+        <a class="btn btn-ghost" data-t="heroCta2" href="#identificas">¿Esto es para mí?</a>
       </div>
       <p class="hero-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        <span id="t-nota">Confidencial · Sin costo · No necesitas cita para tu primera vez</span>
+        <span data-t="heroNota">Confidencial · Sin costo · No necesitas cita para tu primera vez</span>
       </p>
     </div>
     <!-- FIRMA VISUAL: anillo de respiración guiada -->
@@ -440,9 +440,9 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 <section class="feel" id="identificas">
   <div class="wrap">
     <div class="s-head reveal">
-      <span class="eyebrow">¿Te identificas?</span>
-      <h2>Cuando las emociones <span class="trazo">toman el control</span></h2>
-      <p>Todos cargamos con sentimientos que, sin darnos cuenta, empiezan a gobernar nuestras decisiones y nuestra paz. Reconocerlos es el primer paso.</p>
+      <span class="eyebrow" data-t="feelEyebrow">¿Te identificas?</span>
+      <h2 data-t="feelTitulo">Cuando las emociones <span class="trazo">toman el control</span></h2>
+      <p data-t="feelIntro">Todos cargamos con sentimientos que, sin darnos cuenta, empiezan a gobernar nuestras decisiones y nuestra paz. Reconocerlos es el primer paso.</p>
     </div>
     <div class="feel-grid">
       <!-- Los 7 sentimientos. Cada tarjeta GIRA al tocarla y muestra cómo se manifiesta + un ejemplo. -->
@@ -620,7 +620,7 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
         </div>
       </div>
     </div>
-    <p class="def reveal d2">“Neurótico es cualquier persona cuyas emociones interfieren con su funcionamiento, en cualquier forma y en cualquier grado, siempre y cuando ella lo reconozca.”</p>
+    <p class="def reveal d2" data-t="feelDef">“Neurótico es cualquier persona cuyas emociones interfieren con su funcionamiento, en cualquier forma y en cualquier grado, siempre y cuando ella lo reconozca.”</p>
   </div>
 </section>
 
@@ -628,22 +628,22 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 <section class="quiz" id="autoevaluacion">
   <div class="wrap">
     <div class="s-head reveal" style="margin-inline:auto;text-align:center">
-      <span class="eyebrow" style="justify-content:center">Autoevaluación · Confidencial</span>
-      <h2>¿Esto es <span class="trazo">para mí</span>?</h2>
-      <p style="margin-inline:auto">Responde con honestidad. Nadie verá tus respuestas: este test es solo para ti y se queda en tu navegador.</p>
+      <span class="eyebrow" style="justify-content:center" data-t="quizEyebrow">Autoevaluación · Confidencial</span>
+      <h2 data-t="quizTitulo">¿Esto es <span class="trazo">para mí</span>?</h2>
+      <p style="margin-inline:auto" data-t="quizIntro">Responde con honestidad. Nadie verá tus respuestas: este test es solo para ti y se queda en tu navegador.</p>
     </div>
     <div class="quiz-card reveal d1">
-      <p class="lead-q">Marca las situaciones con las que te identificas en tu día a día:</p>
+      <p class="lead-q" data-t="quizLead">Marca las situaciones con las que te identificas en tu día a día:</p>
       <fieldset class="q-list" id="q-list" style="border:0;padding:0;margin:0">
         <legend class="sr-only" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">Preguntas de autoevaluación</legend>
         <!-- Las preguntas se generan desde datos.js (SITE.preguntas) -->
       </fieldset>
       <div class="quiz-foot">
-        <button class="btn btn-primary" id="q-btn" type="button">Ver mi resultado</button>
+        <button class="btn btn-primary" id="q-btn" type="button" data-t="quizBtn">Ver mi resultado</button>
         <span class="q-count" id="q-count" aria-live="polite"><b>0</b> seleccionadas</span>
       </div>
       <div class="q-result" id="q-result" role="status" aria-live="polite"></div>
-      <p class="q-disc">Este cuestionario es orientativo y no constituye un diagnóstico médico. Si atraviesas una crisis, busca también ayuda de un profesional de la salud.</p>
+      <p class="q-disc" data-t="quizDisc">Este cuestionario es orientativo y no constituye un diagnóstico médico. Si atraviesas una crisis, busca también ayuda de un profesional de la salud.</p>
     </div>
   </div>
 </section>
@@ -652,9 +652,9 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 <section id="quees">
   <div class="wrap">
     <div class="s-head reveal">
-      <span class="eyebrow">No estás solo</span>
-      <h2>Qué es <span class="trazo">Neuróticos Anónimos</span></h2>
-      <p>Una comunidad de personas que, compartiendo su experiencia, fuerza y esperanza, se ayudan mutuamente a recuperarse de su malestar emocional. Sin juicios, sin etiquetas.</p>
+      <span class="eyebrow" data-t="queesEyebrow">No estás solo</span>
+      <h2 data-t="queesTitulo">Qué es <span class="trazo">Neuróticos Anónimos</span></h2>
+      <p data-t="queesIntro">Una comunidad de personas que, compartiendo su experiencia, fuerza y esperanza, se ayudan mutuamente a recuperarse de su malestar emocional. Sin juicios, sin etiquetas.</p>
     </div>
     <div class="pillars">
       <div class="pillar reveal d1">
@@ -675,10 +675,10 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
     </div>
 
     <div class="stats">
-      <div class="stat reveal d1"><b data-count="12">0</b><span>Pasos de recuperación</span></div>
-      <div class="stat reveal d2"><b data-count="12">0</b><span>Tradiciones que nos guían</span></div>
-      <div class="stat reveal d3"><b data-count="7">0</b><span>Sentimientos que aprendemos a manejar</span></div>
-      <div class="stat reveal d4"><b data-count="1" data-suffix=" día">0</b><span>A la vez: solo por hoy</span></div>
+      <div class="stat reveal d1"><b data-count="12">0</b><span data-t="stat1">Pasos de recuperación</span></div>
+      <div class="stat reveal d2"><b data-count="12">0</b><span data-t="stat2">Tradiciones que nos guían</span></div>
+      <div class="stat reveal d3"><b data-count="7">0</b><span data-t="stat3">Sentimientos que aprendemos a manejar</span></div>
+      <div class="stat reveal d4"><b data-count="1" data-suffix=" día">0</b><span data-t="stat4">A la vez: solo por hoy</span></div>
     </div>
   </div>
 </section>
@@ -687,24 +687,11 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 <section class="pasos" id="programa">
   <div class="wrap">
     <div class="s-head reveal">
-      <span class="eyebrow">El programa</span>
-      <h2><span class="trazo">Doce Pasos</span> sugeridos</h2>
-      <p>Una guía sencilla y probada para cambiar nuestra forma de pensar y de actuar. No se trata de perfección, sino de progreso.</p>
+      <span class="eyebrow" data-t="pasosEyebrow">El programa</span>
+      <h2 data-t="pasosTitulo"><span class="trazo">Doce Pasos</span> sugeridos</h2>
+      <p data-t="pasosIntro">Una guía sencilla y probada para cambiar nuestra forma de pensar y de actuar. No se trata de perfección, sino de progreso.</p>
     </div>
-    <div class="steps">
-      <div class="step reveal d1"><div class="n">1</div><p>Admitimos que éramos impotentes ante la neurosis, que nuestras vidas se habían vuelto ingobernables.</p></div>
-      <div class="step reveal d1"><div class="n">2</div><p>Llegamos a creer que un Poder superior a nosotros mismos podría devolvernos el sano juicio.</p></div>
-      <div class="step reveal d2"><div class="n">3</div><p>Decidimos poner nuestras voluntades y nuestras vidas al cuidado de Dios, como nosotros lo concebimos.</p></div>
-      <div class="step reveal d2"><div class="n">4</div><p>Sin miedo hicimos un minucioso inventario moral de nosotros mismos.</p></div>
-      <div class="step reveal d1"><div class="n">5</div><p>Admitimos ante Dios, ante nosotros mismos y ante otro ser humano, la naturaleza exacta de nuestros defectos.</p></div>
-      <div class="step reveal d2"><div class="n">6</div><p>Estuvimos enteramente dispuestos a dejar que Dios nos liberase de nuestros defectos.</p></div>
-      <div class="step reveal d1"><div class="n">7</div><p>Humildemente le pedimos que nos liberase de nuestros defectos.</p></div>
-      <div class="step reveal d2"><div class="n">8</div><p>Hicimos una lista de todas aquellas personas a quienes habíamos ofendido y estuvimos dispuestos a reparar el daño.</p></div>
-      <div class="step reveal d1"><div class="n">9</div><p>Reparamos directamente a cuantos nos fue posible el daño causado, excepto cuando hacerlo implicaba perjuicio para ellos o para otros.</p></div>
-      <div class="step reveal d2"><div class="n">10</div><p>Continuamos haciendo nuestro inventario personal y, cuando nos equivocábamos, lo admitíamos inmediatamente.</p></div>
-      <div class="step reveal d1"><div class="n">11</div><p>Buscamos, a través de la oración y la meditación, mejorar nuestro contacto consciente con Dios, como nosotros lo concebimos.</p></div>
-      <div class="step reveal d2"><div class="n">12</div><p>Habiendo obtenido un despertar espiritual, tratamos de llevar el mensaje a otros neuróticos y de practicar estos principios en todos nuestros asuntos.</p></div>
-    </div>
+    <div class="steps" id="steps-list"><!-- se rellena desde SITE.pasos --></div>
   </div>
 </section>
 
@@ -712,27 +699,22 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 <section id="sesiones">
   <div class="wrap">
     <div class="s-head reveal">
-      <span class="eyebrow">Las sesiones</span>
-      <h2>Tu <span class="trazo">primera vez</span>, sin miedo</h2>
-      <p>Llegar puede dar nervios, y está bien. Esto es lo que vas a encontrar cuando cruces la puerta.</p>
+      <span class="eyebrow" data-t="sesEyebrow">Las sesiones</span>
+      <h2 data-t="sesTitulo">Tu <span class="trazo">primera vez</span>, sin miedo</h2>
+      <p data-t="sesIntro">Llegar puede dar nervios, y está bien. Esto es lo que vas a encontrar cuando cruces la puerta.</p>
     </div>
     <div class="ses-grid">
       <div class="ses-card reveal d1">
-        <h3>¿Cómo es una reunión?</h3>
-        <ul class="ses-list">
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>En tu primera visita solo escuchas. Nadie te obliga a hablar ni a dar tu nombre.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Compañeros comparten su experiencia: cómo llegaron y cómo se sienten hoy.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Abrimos y cerramos con la Oración de la Serenidad. Hay charla, mesa redonda y participación libre.</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg><span>Todo lo que se dice ahí, se queda ahí. Confidencialidad absoluta.</span></li>
-        </ul>
+        <h3 data-t="reunionTitulo">¿Cómo es una reunión?</h3>
+        <ul class="ses-list" id="ses-list"><!-- se rellena desde SITE.reunion --></ul>
       </div>
       <div class="horario reveal d2">
-        <span class="edit">◆ Horario de reuniones</span>
-        <h3>¿Cuándo nos reunimos?</h3>
+        <span class="edit" data-t="horarioBadge">◆ Horario de reuniones</span>
+        <h3 data-t="horarioTitulo">¿Cuándo nos reunimos?</h3>
         <!-- Los horarios se generan desde datos.js (SITE.horarios) -->
         <div id="horario-list"></div>
-        <p style="margin-top:18px;font-size:.92rem;color:var(--tinta-soft)">¿Quieres confirmar el horario de hoy? Escríbenos por WhatsApp y con gusto te decimos.</p>
-        <a class="btn btn-primary" style="margin-top:16px" href="https://wa.me/5216671323318?text=Hola%2C%20%C2%BFa%20qu%C3%A9%20hora%20es%20la%20reuni%C3%B3n%20de%20hoy%3F" target="_blank" rel="noopener">Preguntar horario de hoy</a>
+        <p style="margin-top:18px;font-size:.92rem;color:var(--tinta-soft)" data-t="horarioNota">¿Quieres confirmar el horario de hoy? Escríbenos por WhatsApp y con gusto te decimos.</p>
+        <a class="btn btn-primary" style="margin-top:16px" href="https://wa.me/5216671323318?text=Hola%2C%20%C2%BFa%20qu%C3%A9%20hora%20es%20la%20reuni%C3%B3n%20de%20hoy%3F" target="_blank" rel="noopener" data-t="horarioBtn">Preguntar horario de hoy</a>
       </div>
     </div>
   </div>
@@ -742,9 +724,9 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 <section class="eventos" id="eventos">
   <div class="wrap">
     <div class="s-head reveal">
-      <span class="eyebrow">Eventos próximos</span>
-      <h2>Aniversarios, <span class="trazo">talleres y juntas</span> abiertas</h2>
-      <p>Celebramos juntos cada logro. Aquí anunciamos los eventos abiertos a quien quiera acompañarnos.</p>
+      <span class="eyebrow" data-t="evEyebrow">Eventos próximos</span>
+      <h2 data-t="evTitulo">Aniversarios, <span class="trazo">talleres y juntas</span> abiertas</h2>
+      <p data-t="evIntro">Celebramos juntos cada logro. Aquí anunciamos los eventos abiertos a quien quiera acompañarnos.</p>
     </div>
     <div class="ev-grid reveal" id="ev-grid" aria-live="polite"><!-- se rellena con JS desde EVENTOS_DATA --></div>
   </div>
@@ -754,31 +736,31 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 <section class="contacto" id="contacto">
   <div class="wrap">
     <div class="s-head reveal">
-      <span class="eyebrow">Visítanos</span>
-      <h2>Estamos aquí para ti, <span class="trazo">hoy mismo</span></h2>
-      <p>Las puertas están abiertas. Llega, escucha y date la oportunidad de empezar de nuevo.</p>
+      <span class="eyebrow" data-t="contEyebrow">Visítanos</span>
+      <h2 data-t="contTitulo">Estamos aquí para ti, <span class="trazo">hoy mismo</span></h2>
+      <p data-t="contIntro">Las puertas están abiertas. Llega, escucha y date la oportunidad de empezar de nuevo.</p>
     </div>
     <div class="cont-grid">
       <div class="cont-info reveal d1">
         <div class="cont-row">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><b>Dónde estamos</b><span>Juan de Dios Bátiz 1351b, Col. Morelos,<br>80170 Culiacán Rosales, Sinaloa</span></div>
+          <div><b data-t="contDirLabel">Dónde estamos</b><span data-t="contDir">Juan de Dios Bátiz 1351b, Col. Morelos,<br>80170 Culiacán Rosales, Sinaloa</span></div>
         </div>
         <div class="cont-row">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div><b>Llámanos</b><a href="tel:+526671323318">667 132 3318</a></div>
+          <div><b data-t="contTelLabel">Llámanos</b><a href="tel:+526671323318" data-t="contTel">667 132 3318</a></div>
         </div>
         <div class="cont-row">
           <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.7-3.3-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg></div>
-          <div><b>WhatsApp</b><a href="https://wa.me/5216671323318?text=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20saber%20m%C3%A1s." target="_blank" rel="noopener">Escríbenos ahora →</a></div>
+          <div><b data-t="contWaLabel">WhatsApp</b><a href="https://wa.me/5216671323318?text=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20saber%20m%C3%A1s." target="_blank" rel="noopener" data-t="contWaText">Escríbenos ahora →</a></div>
         </div>
         <div class="cont-row">
           <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6v1.8H16l-.4 2.9h-2.1v7A10 10 0 0 0 22 12z"/></svg></div>
-          <div><b>Facebook</b><a href="https://www.facebook.com/vida.plena.96343?locale=es_LA" target="_blank" rel="noopener">Síguenos en Facebook →</a></div>
+          <div><b data-t="contFbLabel">Facebook</b><a href="https://www.facebook.com/vida.plena.96343?locale=es_LA" target="_blank" rel="noopener" data-t="contFbText">Síguenos en Facebook →</a></div>
         </div>
         <div class="cont-cta">
-          <a class="btn btn-primary" href="https://wa.me/5216671323318?text=Hola%2C%20necesito%20ayuda%20y%20quiero%20asistir%20a%20una%20sesi%C3%B3n." target="_blank" rel="noopener">Quiero asistir</a>
-          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Neur%C3%B3ticos%20An%C3%B3nimos%20A.C.%20Juan%20de%20Dios%20Batiz%201351b%20Culiac%C3%A1n" target="_blank" rel="noopener">Cómo llegar</a>
+          <a class="btn btn-primary" href="https://wa.me/5216671323318?text=Hola%2C%20necesito%20ayuda%20y%20quiero%20asistir%20a%20una%20sesi%C3%B3n." target="_blank" rel="noopener" data-t="ctaAsistir">Quiero asistir</a>
+          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Neur%C3%B3ticos%20An%C3%B3nimos%20A.C.%20Juan%20de%20Dios%20Batiz%201351b%20Culiac%C3%A1n" target="_blank" rel="noopener" data-t="ctaComoLlegar">Cómo llegar</a>
         </div>
       </div>
       <div class="map-wrap reveal d2">
@@ -798,7 +780,7 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
   <div class="wrap">
     <div class="foot-grid">
       <div>
-        <p class="serenidad">“Dios, concédeme serenidad para aceptar las cosas que no puedo cambiar, valor para cambiar las que puedo y sabiduría para reconocer la diferencia.”
+        <p class="serenidad" data-t="footSerenidad">“Dios, concédeme serenidad para aceptar las cosas que no puedo cambiar, valor para cambiar las que puedo y sabiduría para reconocer la diferencia.”
           <small>Oración de la serenidad · Solo por hoy</small></p>
       </div>
       <div class="foot-links">
@@ -813,9 +795,9 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
     <div class="foot-bottom">
       <span class="anon">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Tu anonimato y confidencialidad están protegidos.
+        <span data-t="footAnon">Tu anonimato y confidencialidad están protegidos.</span>
       </span>
-      <span>© <span id="year"></span> Neuróticos Anónimos A.C. · Culiacán, Sinaloa</span>
+      <span>© <span id="year"></span> <span data-t="footCopy">Neuróticos Anónimos A.C. · Culiacán, Sinaloa</span></span>
     </div>
   </div>
 </footer>
@@ -823,7 +805,7 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 <!-- flotante de contacto inmediato -->
 <a class="float-help" href="https://wa.me/5216671323318?text=Hola%2C%20necesito%20hablar%20con%20alguien." target="_blank" rel="noopener" aria-label="Hablar ahora por WhatsApp">
   <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.7-3.3-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/><path d="M12 2a10 10 0 0 0-8.5 15.2L2 22l4.9-1.5A10 10 0 1 0 12 2zm0 18.2c-1.5 0-2.9-.4-4.2-1.1l-.3-.2-2.9.9.9-2.8-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-  <span>Hablar ahora</span>
+  <span data-t="floatHelp">Hablar ahora</span>
 </a>
 
 <script src="datos.js"></script>
@@ -837,16 +819,48 @@ const S = window.SITE || {};
 const WA = S.whatsapp || "5216671323318";
 const wa = (txt)=> "https://wa.me/"+WA+"?text="+encodeURIComponent(txt);
 
-/* ---------- textos editables del hero ---------- */
+/* ---------- textos editables (TODO el copy vive en datos.js) ---------- */
 (function renderTextos(){
   const T=S.textos; if(!T) return;
-  const set=(id,val,html)=>{ const el=document.getElementById(id); if(el&&val!=null) el[html?'innerHTML':'textContent']=val; };
-  set('t-eyebrow',T.heroEyebrow);
-  set('t-titulo',T.heroTitulo,true);
-  set('t-lead',T.heroLead);
-  set('t-cta1',T.heroCta1);
-  set('t-cta2',T.heroCta2);
-  set('t-nota',T.heroNota);
+  document.querySelectorAll('[data-t]').forEach(el=>{
+    const v=T[el.getAttribute('data-t')];
+    if(v!=null) el.innerHTML=v;
+  });
+})();
+
+/* ---------- los 7 sentimientos (texto de las máscaras) ---------- */
+(function renderSentimientos(){
+  const arr=S.sentimientos; if(!arr) return;
+  document.querySelectorAll('.feel-grid .mask').forEach((card,i)=>{
+    const d=arr[i]; if(!d) return;
+    if(d.nombre){ card.querySelectorAll('b').forEach(b=>b.textContent=d.nombre);
+      card.setAttribute('aria-label', d.nombre+'. Toca para ver un ejemplo'); }
+    const p=card.querySelector('.mask-back p'); if(p&&d.desc) p.textContent=d.desc;
+    const ej=card.querySelector('.mask-back .ej'); if(ej&&d.ejemplo) ej.textContent='Ej.: '+d.ejemplo;
+  });
+})();
+
+/* ---------- pilares (Qué es NA) ---------- */
+(function renderPilares(){
+  const arr=S.pilares; if(!arr) return;
+  document.querySelectorAll('.pillars .pillar').forEach((el,i)=>{
+    const d=arr[i]; if(!d) return;
+    const h=el.querySelector('h3'); if(h&&d.titulo) h.textContent=d.titulo;
+    const p=el.querySelector('p'); if(p&&d.texto) p.textContent=d.texto;
+  });
+})();
+
+/* ---------- "¿Cómo es una reunión?" ---------- */
+(function renderReunion(){
+  const arr=S.reunion, ul=document.getElementById('ses-list'); if(!arr||!ul) return;
+  const chk='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6 9 17l-5-5"/></svg>';
+  ul.innerHTML=arr.map(t=>'<li>'+chk+'<span>'+t+'</span></li>').join('');
+})();
+
+/* ---------- 12 pasos ---------- */
+(function renderPasos(){
+  const arr=S.pasos, c=document.getElementById('steps-list'); if(!arr||!c) return;
+  c.innerHTML=arr.map((t,i)=>'<div class="step reveal '+(i%2?'d2':'d1')+'"><div class="n">'+(i+1)+'</div><p>'+t+'</p></div>').join('');
 })();
 
 /* ---------- horarios de las sesiones ---------- */
