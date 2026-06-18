@@ -410,16 +410,16 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 <section class="hero" id="inicio">
   <div class="wrap hero-grid">
     <div class="reveal in">
-      <span class="eyebrow">Grupo de autoayuda · Gratuito y anónimo</span>
-      <h1>Aprende a vivir <em>en paz</em><br>contigo mismo</h1>
-      <p class="lead">Si la ansiedad, la ira o el miedo influyen en tu vida, no estás solo. En Neuróticos Anónimos encontramos la calma a través de los Doce Pasos, un día a la vez.</p>
+      <span class="eyebrow" id="t-eyebrow">Grupo de autoayuda · Gratuito y anónimo</span>
+      <h1 id="t-titulo">Aprende a vivir <em>en paz</em><br>contigo mismo</h1>
+      <p class="lead" id="t-lead">Si la ansiedad, la ira o el miedo influyen en tu vida, no estás solo. En Neuróticos Anónimos encontramos la calma a través de los Doce Pasos, un día a la vez.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#sesiones">Asiste a una sesión</a>
-        <a class="btn btn-ghost" href="#identificas">¿Esto es para mí?</a>
+        <a class="btn btn-primary" id="t-cta1" href="#sesiones">Asiste a una sesión</a>
+        <a class="btn btn-ghost" id="t-cta2" href="#identificas">¿Esto es para mí?</a>
       </div>
       <p class="hero-note">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-        Confidencial · Sin costo · No necesitas cita para tu primera vez
+        <span id="t-nota">Confidencial · Sin costo · No necesitas cita para tu primera vez</span>
       </p>
     </div>
     <!-- FIRMA VISUAL: anillo de respiración guiada -->
@@ -836,6 +836,18 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 const S = window.SITE || {};
 const WA = S.whatsapp || "5216671323318";
 const wa = (txt)=> "https://wa.me/"+WA+"?text="+encodeURIComponent(txt);
+
+/* ---------- textos editables del hero ---------- */
+(function renderTextos(){
+  const T=S.textos; if(!T) return;
+  const set=(id,val,html)=>{ const el=document.getElementById(id); if(el&&val!=null) el[html?'innerHTML':'textContent']=val; };
+  set('t-eyebrow',T.heroEyebrow);
+  set('t-titulo',T.heroTitulo,true);
+  set('t-lead',T.heroLead);
+  set('t-cta1',T.heroCta1);
+  set('t-cta2',T.heroCta2);
+  set('t-nota',T.heroNota);
+})();
 
 /* ---------- horarios de las sesiones ---------- */
 (function renderHorarios(){

@@ -9,6 +9,17 @@ window.SITE = {
   /* WhatsApp en formato internacional. México = 521 + 10 dígitos. */
   whatsapp: "5216671323318",
 
+  /* ---- TEXTOS EDITABLES DEL HERO ----
+     heroTitulo admite <em> (cursiva) y <br> (salto de línea). El resto es texto simple. */
+  textos: {
+    heroEyebrow: "Grupo de autoayuda · Gratuito y anónimo",
+    heroTitulo: "Aprende a vivir <em>en paz</em><br>contigo mismo",
+    heroLead: "Si la ansiedad, la ira o el miedo influyen en tu vida, no estás solo. En Neuróticos Anónimos encontramos la calma a través de los Doce Pasos, un día a la vez.",
+    heroCta1: "Asiste a una sesión",
+    heroCta2: "¿Esto es para mí?",
+    heroNota: "Confidencial · Sin costo · No necesitas cita para tu primera vez"
+  },
+
   /* ---- HORARIOS DE LAS SESIONES ---- */
   horarios: [
     { dia: "Lunes a Viernes", hora: "6:00 a 7:30 PM" }
