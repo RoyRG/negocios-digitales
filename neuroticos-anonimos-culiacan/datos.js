@@ -33,7 +33,7 @@ window.SITE = {
   /* ---- EVENTOS PRÓXIMOS ----
      Lista vacía  eventos: []  => la página muestra un mensaje de "próximamente". */
   eventos: [
-    { dia: "25", mes: "JUN", titulo: "Sesión temática: la autoestima",
+    { dia: "26", mes: "JUN", titulo: "Sesión temática: la autoestima",
       hora: "6:00 a 7:30 PM", lugar: "Sede Col. Morelos",
       texto: "Junta abierta para hablar sobre cómo reconstruir la autoestima, un día a la vez. Entrada libre y gratuita; familiares y nuevos compañeros son bienvenidos." }
   ]
