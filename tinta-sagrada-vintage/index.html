@@ -385,7 +385,7 @@
   </div>
 </div>
 
-<script src="datos.js?v=20260621013637"></script>
+<script src="datos.js?v=20260621013743"></script>
 <script>
   const T = window.TINTA || {};
   const WA = T.whatsapp || '5213312345678';
@@ -491,7 +491,11 @@
     if(reduce){ window.open(url,'_blank'); return; }
     const cap=document.getElementById('sello-cap');
     cap.classList.add('on');
-    setTimeout(()=>{ window.open(url,'_blank'); cap.classList.remove('on'); }, 1150);
+    setTimeout(()=>{
+      const w=window.open(url,'_blank');           // tras el sello (fuera del gesto)
+      if(!w) window.location.href=url;             // si el bloqueador lo corta, navegamos igual
+      cap.classList.remove('on');
+    }, 1150);
   });
 </script>
 </body>
