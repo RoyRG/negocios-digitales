@@ -233,6 +233,28 @@
   .sello-cap.on .msg{animation:apar .4s .55s var(--exp) forwards}
   @keyframes apar{to{opacity:1}}
 
+  /* ===== P1: imagen en la carta (split asimétrico) ===== */
+  .carta-split{display:grid;grid-template-columns:.82fr 1fr;gap:clamp(28px,5vw,68px);align-items:center}
+  @media(max-width:760px){.carta-split{grid-template-columns:1fr;gap:30px}}
+  .carta-foto{margin:0;position:relative;aspect-ratio:3/4;overflow:hidden;background:var(--noche);box-shadow:8px 10px 0 rgba(30,23,16,.18)}
+  .carta-foto img{width:100%;height:100%;object-fit:cover;filter:grayscale(.15) sepia(.2) contrast(1.04);transition:transform .7s var(--exp)}
+  .carta-foto:hover img{transform:scale(1.04)}
+  .carta-split .carta{max-width:none}
+
+  /* ===== P1: testimonios drenchados (foto de fondo + color comprometido) ===== */
+  #voces{background:var(--noche);color:var(--hueso);position:relative;overflow:hidden}
+  #voces .bg{position:absolute;inset:0;background:url("img/tatuaje-1.jpg") center 28%/cover;filter:grayscale(.5) contrast(1.06) brightness(.3) sepia(.35);opacity:.5}
+  #voces::after{content:"";position:absolute;inset:0;pointer-events:none;
+    background:linear-gradient(180deg,rgba(25,17,11,.82),rgba(25,17,11,.72)),radial-gradient(72% 90% at 82% 10%,rgba(156,53,38,.42),transparent 60%)}
+  #voces .cont{position:relative;z-index:2}
+  #voces .titulo{color:var(--hueso)}
+  #voces .testi-big blockquote{font-size:clamp(1.9rem,4.6vw,3.2rem);color:var(--hueso)}
+  #voces .testi-big blockquote::before{color:var(--oxido-vivo)}
+  #voces .testi-big .quien{color:#cdbf9f}
+  #voces .testi-mini .t{border-left-color:var(--oxido-vivo)}
+  #voces .testi-mini p{color:#e3d7bd}
+  #voces .testi-mini b{color:#b7a988}
+
   @media(prefers-reduced-motion:reduce){
     *{animation:none!important;transition:none!important}
     .anim .rev,.anim .hero h1 .w{opacity:1!important;transform:none!important}
@@ -284,7 +306,10 @@
       <h2 class="titulo" data-t="servTitulo">La carta</h2>
       <p class="sub" data-t="servIntro">Cada pieza se cotiza por tamaño, zona y detalle.</p>
     </div>
-    <div class="carta" id="carta"></div>
+    <div class="carta-split">
+      <figure class="carta-foto rev"><img src="img/tatuaje-2.jpg" alt="Tatuaje de catrina realista en negro y gris" loading="lazy"></figure>
+      <div class="carta" id="carta"></div>
+    </div>
   </div>
 </section>
 
@@ -304,6 +329,7 @@
 
 <!-- ============ TESTIMONIOS ============ -->
 <section id="voces">
+  <div class="bg" aria-hidden="true"></div>
   <div class="cont">
     <div class="carta-cab rev"><h2 class="titulo" data-t="testTitulo">Lo que dejan dicho</h2></div>
     <div class="testi-wrap" id="testimonios"></div>
@@ -385,7 +411,7 @@
   </div>
 </div>
 
-<script src="datos.js?v=20260621013743"></script>
+<script src="datos.js?v=20260621025337"></script>
 <script>
   const T = window.TINTA || {};
   const WA = T.whatsapp || '5213312345678';
