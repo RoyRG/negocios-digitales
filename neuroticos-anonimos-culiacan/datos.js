@@ -86,7 +86,7 @@ window.SITE = {
     /* Footer / flotante */
     footSerenidad: "“Dios, concédeme serenidad para aceptar las cosas que no puedo cambiar, valor para cambiar las que puedo y sabiduría para reconocer la diferencia.” <small>Oración de la serenidad · Solo por hoy</small>",
     footAnon: "Tu anonimato y confidencialidad están protegidos.",
-    footCopy: "Neuróticos Anónimos A.C. · Culiacán, Sinaloa",
+    footCopy: "Neuróticos Anónimos · Culiacán, Sinaloa",
     floatHelp: "Hablar ahora"
   },
 
