@@ -134,9 +134,39 @@ window.SITE = {
     "Habiendo obtenido un despertar espiritual, tratamos de llevar el mensaje a otros neuróticos y de practicar estos principios en todos nuestros asuntos."
   ],
 
-  /* ---- HORARIOS DE LAS SESIONES ---- */
-  horarios: [
-    { dia: "Lunes a Viernes", hora: "6:00 a 7:30 PM" }
+  /* ---- SEDES (horarios, contacto y eventos por sede) ---- */
+  sedes: [
+    {
+      nombre: "Sede Col. Morelos",
+      dir: "Juan de Dios Bátiz 1351b, Col. Morelos,<br>80170 Culiacán Rosales, Sinaloa",
+      tel: "667 132 3318",
+      telHref: "+526671323318",
+      whatsapp: "5216671323318",
+      horarios: [
+        { dia: "Lunes a Viernes", hora: "6:00 a 7:30 PM" }
+      ],
+      mapaOsm: "https://www.openstreetmap.org/export/embed.html?bbox=-107.4125%2C24.7848%2C-107.4045%2C24.7908&layer=mapnik&marker=24.787787%2C-107.4085088",
+      mapaGmaps: "https://www.google.com/maps/search/?api=1&query=Juan%20de%20Dios%20B%C3%A1tiz%201351b%20Morelos%2080170%20Culiac%C3%A1n%20Rosales%20Sinaloa",
+      eventos: [
+        { dia: "26", mes: "JUN", titulo: "Sesión temática: la autoestima",
+          hora: "6:00 a 7:30 PM", lugar: "Sede Col. Morelos",
+          texto: "Junta abierta para hablar sobre cómo reconstruir la autoestima, un día a la vez. Entrada libre y gratuita; familiares y nuevos compañeros son bienvenidos." }
+      ]
+    },
+    {
+      nombre: "Sede Centro",
+      dir: "Aquiles Serdán #457-7 Nte, Col. Centro,<br>Culiacán Rosales, Sinaloa",
+      tel: "667 603 0322",
+      telHref: "+526676030322",
+      whatsapp: "5216676030322",
+      horarios: [
+        { dia: "Lunes a Viernes", hora: "7:00 a 8:30 PM" },
+        { dia: "Sábados",         hora: "6:00 a 7:30 PM"  }
+      ],
+      mapaOsm: "https://www.openstreetmap.org/export/embed.html?bbox=-107.4020%2C24.7960%2C-107.3940%2C24.8050&layer=mapnik&marker=24.8005%2C-107.3980",
+      mapaGmaps: "https://www.google.com/maps/search/?api=1&query=Aquiles+Serdan+457+Norte+Col.+Centro+Culiacan+Sinaloa",
+      eventos: []
+    }
   ],
 
   /* ---- CUESTIONARIO DE AUTOEVALUACIÓN ----
@@ -155,11 +185,4 @@ window.SITE = {
     "Siento que mis emociones controlan mi vida más de lo que quisiera."
   ],
 
-  /* ---- EVENTOS PRÓXIMOS ----
-     Lista vacía  eventos: []  => la página muestra un mensaje de "próximamente". */
-  eventos: [
-    { dia: "26", mes: "JUN", titulo: "Sesión temática: la autoestima",
-      hora: "6:00 a 7:30 PM", lugar: "Sede Col. Morelos",
-      texto: "Junta abierta para hablar sobre cómo reconstruir la autoestima, un día a la vez. Entrada libre y gratuita; familiares y nuevos compañeros son bienvenidos." }
-  ]
 };

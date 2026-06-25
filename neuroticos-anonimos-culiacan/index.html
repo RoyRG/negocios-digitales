@@ -309,6 +309,19 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
 .float-help:active{transform:scale(.95)}
 .float-help svg{width:1.2em;height:1.2em}
 
+.sedes-horarios{display:flex;flex-direction:column;gap:16px}
+.horario .sede-nom{display:block;font-size:.72rem;color:var(--arena);font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:.5em}
+.ev-sede-bloque{margin-bottom:34px}.ev-sede-bloque:last-child{margin-bottom:0}
+.ev-sede-nom{font-family:"Fraunces",serif;font-size:1.15rem;color:var(--verde-900);margin-bottom:16px;padding-bottom:10px;border-bottom:2px solid var(--menta-2);display:flex;align-items:center;gap:.5em}
+.ev-sede-nom::before{content:'';width:8px;height:8px;background:var(--verde);border-radius:50%;flex:none}
+.cont-sede-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:28px;align-items:stretch;margin-bottom:36px}
+.cont-sede-grid:last-child{margin-bottom:0}
+.cont-sede-nom{display:block;font-size:.74rem;color:var(--arena-soft);font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.cont-sede-grid .cont-row{margin-bottom:10px}.cont-sede-grid .cont-row:last-of-type{margin-bottom:0}
+.cont-sede-cta{display:flex;flex-wrap:wrap;gap:10px;margin-top:14px}
+.cont-sede-grid .map-wrap{min-height:220px}
+.cont-sede-grid .map-wrap iframe{min-height:220px}
+@media(max-width:860px){.cont-sede-grid{grid-template-columns:1fr}}
 @media(max-width:860px){
   .hero-grid,.ses-grid,.cont-grid,.foot-grid{grid-template-columns:1fr}
   .breath{max-width:300px;order:-1}
@@ -708,14 +721,7 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
         <h3 data-t="reunionTitulo">¿Cómo es una reunión?</h3>
         <ul class="ses-list" id="ses-list"><!-- se rellena desde SITE.reunion --></ul>
       </div>
-      <div class="horario reveal d2">
-        <span class="edit" data-t="horarioBadge">◆ Horario de reuniones</span>
-        <h3 data-t="horarioTitulo">¿Cuándo nos reunimos?</h3>
-        <!-- Los horarios se generan desde datos.js (SITE.horarios) -->
-        <div id="horario-list"></div>
-        <p style="margin-top:18px;font-size:.92rem;color:var(--tinta-soft)" data-t="horarioNota">¿Quieres confirmar el horario de hoy? Escríbenos por WhatsApp y con gusto te decimos.</p>
-        <a class="btn btn-primary" style="margin-top:16px" href="https://wa.me/5216671323318?text=Hola%2C%20%C2%BFa%20qu%C3%A9%20hora%20es%20la%20reuni%C3%B3n%20de%20hoy%3F" target="_blank" rel="noopener" data-t="horarioBtn">Preguntar horario de hoy</a>
-      </div>
+      <div id="sedes-horarios" class="sedes-horarios reveal d2"><!-- se rellena desde SITE.sedes --></div>
     </div>
   </div>
 </section>
@@ -728,7 +734,7 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
       <h2 data-t="evTitulo">Aniversarios, <span class="trazo">talleres y juntas</span> abiertas</h2>
       <p data-t="evIntro">Celebramos juntos cada logro. Aquí anunciamos los eventos abiertos a quien quiera acompañarnos.</p>
     </div>
-    <div class="ev-grid reveal" id="ev-grid" aria-live="polite"><!-- se rellena con JS desde EVENTOS_DATA --></div>
+    <div id="ev-sedes" aria-live="polite"><!-- se rellena desde SITE.sedes --></div>
   </div>
 </section>
 
@@ -740,38 +746,7 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
       <h2 data-t="contTitulo">Estamos aquí para ti, <span class="trazo">hoy mismo</span></h2>
       <p data-t="contIntro">Las puertas están abiertas. Llega, escucha y date la oportunidad de empezar de nuevo.</p>
     </div>
-    <div class="cont-grid">
-      <div class="cont-info reveal d1">
-        <div class="cont-row">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
-          <div><b data-t="contDirLabel">Dónde estamos</b><span data-t="contDir">Juan de Dios Bátiz 1351b, Col. Morelos,<br>80170 Culiacán Rosales, Sinaloa</span></div>
-        </div>
-        <div class="cont-row">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div>
-          <div><b data-t="contTelLabel">Llámanos</b><a href="tel:+526671323318" data-t="contTel">667 132 3318</a></div>
-        </div>
-        <div class="cont-row">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.7-3.3-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg></div>
-          <div><b data-t="contWaLabel">WhatsApp</b><a href="https://wa.me/5216671323318?text=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20me%20gustar%C3%ADa%20saber%20m%C3%A1s." target="_blank" rel="noopener" data-t="contWaText">Escríbenos ahora →</a></div>
-        </div>
-        <div class="cont-row">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6v1.8H16l-.4 2.9h-2.1v7A10 10 0 0 0 22 12z"/></svg></div>
-          <div><b data-t="contFbLabel">Facebook</b><a href="https://www.facebook.com/vida.plena.96343?locale=es_LA" target="_blank" rel="noopener" data-t="contFbText">Síguenos en Facebook →</a></div>
-        </div>
-        <div class="cont-cta">
-          <a class="btn btn-primary" href="https://wa.me/5216671323318?text=Hola%2C%20necesito%20ayuda%20y%20quiero%20asistir%20a%20una%20sesi%C3%B3n." target="_blank" rel="noopener" data-t="ctaAsistir">Quiero asistir</a>
-          <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Neur%C3%B3ticos%20An%C3%B3nimos%20A.C.%20Juan%20de%20Dios%20Batiz%201351b%20Culiac%C3%A1n" target="_blank" rel="noopener" data-t="ctaComoLlegar">Cómo llegar</a>
-        </div>
-      </div>
-      <div class="map-wrap reveal d2">
-        <iframe id="mapa" title="Ubicación de Neuróticos Anónimos en Culiacán" loading="lazy"
-          data-src="https://www.openstreetmap.org/export/embed.html?bbox=-107.4125%2C24.7848%2C-107.4045%2C24.7908&layer=mapnik&marker=24.787787%2C-107.4085088"></iframe>
-        <a class="map-open" href="https://www.google.com/maps/search/?api=1&query=Juan%20de%20Dios%20B%C3%A1tiz%201351b%20Morelos%2080170%20Culiac%C3%A1n%20Rosales%20Sinaloa" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-          Ver en Google Maps
-        </a>
-      </div>
-    </div>
+    <div id="cont-sedes-info"><!-- se rellena desde SITE.sedes --></div>
   </div>
 </section>
 
@@ -808,7 +783,7 @@ footer{background:#0A3322;color:color-mix(in srgb,#fff 72%,transparent);padding:
   <span data-t="floatHelp">Hablar ahora</span>
 </a>
 
-<script src="datos.js?v=20260621212314"></script>
+<script src="datos.js?v=20260624233000"></script>
 <script>
 /* ============================================================
    Lógica de la página. El CONTENIDO editable vive en datos.js
@@ -863,11 +838,16 @@ const wa = (txt)=> "https://wa.me/"+WA+"?text="+encodeURIComponent(txt);
   c.innerHTML=arr.map((t,i)=>'<div class="step reveal '+(i%2?'d2':'d1')+'"><div class="n">'+(i+1)+'</div><p>'+t+'</p></div>').join('');
 })();
 
-/* ---------- horarios de las sesiones ---------- */
+/* ---------- horarios de las sesiones (por sede) ---------- */
 (function renderHorarios(){
-  const c=document.getElementById('horario-list');
-  if(!c||!S.horarios) return;
-  c.innerHTML=S.horarios.map(h=>'<div class="dia"><b>'+h.dia+'</b><span>'+h.hora+'</span></div>').join('');
+  const c=document.getElementById('sedes-horarios');
+  if(!c||!S.sedes) return;
+  const nota='<p style="margin-top:16px;font-size:.9rem;color:var(--tinta-soft)">¿Quieres confirmar el horario de hoy?</p>';
+  c.innerHTML=S.sedes.map(s=>{
+    const dias=s.horarios.map(h=>'<div class="dia"><b>'+h.dia+'</b><span>'+h.hora+'</span></div>').join('');
+    const waUrl='https://wa.me/'+s.whatsapp+'?text='+encodeURIComponent('Hola, ¿a qué hora es la reunión de hoy?');
+    return '<div class="horario"><span class="edit sede-nom">◆ '+s.nombre+'</span><h3>¿Cuándo nos reunimos?</h3>'+dias+nota+'<a class="btn btn-primary" style="margin-top:12px" href="'+waUrl+'" target="_blank" rel="noopener">Preguntar horario de hoy</a></div>';
+  }).join('');
 })();
 
 /* ---------- preguntas del cuestionario ---------- */
@@ -878,19 +858,11 @@ const wa = (txt)=> "https://wa.me/"+WA+"?text="+encodeURIComponent(txt);
     '<label class="q-item"><input type="checkbox"><span>'+p+'</span></label>').join(''));
 })();
 
-/* ---------- eventos próximos ---------- */
+/* ---------- eventos próximos (por sede) ---------- */
 (function renderEventos(){
-  const grid = document.getElementById('ev-grid');
-  if(!grid) return;
-  const ev = S.eventos || [];
-  if(!ev.length){
-    grid.innerHTML = '<div class="ev-empty"><h3>Pronto anunciaremos nuevos eventos</h3>'+
-      '<p>Mientras tanto, nuestras reuniones siguen abiertas todos los días. Escríbenos por WhatsApp y te contamos cuándo es la próxima.</p>'+
-      '<a class="btn btn-primary" style="margin-top:18px" target="_blank" rel="noopener" href="'+
-      wa("Hola, ¿cuándo es el próximo evento?")+'">Preguntar por eventos</a></div>';
-    return;
-  }
-  grid.innerHTML = ev.map((e,i)=>(
+  const wrap = document.getElementById('ev-sedes');
+  if(!wrap||!S.sedes) return;
+  const cardHtml=(e,i)=>(
     '<article class="ev-card reveal" style="transition-delay:'+(i*0.08)+'s">'+
       '<div class="ev-date"><span class="d">'+e.dia+'</span><span class="m">'+e.mes+'</span></div>'+
       '<div class="ev-body">'+
@@ -902,7 +874,18 @@ const wa = (txt)=> "https://wa.me/"+WA+"?text="+encodeURIComponent(txt);
         '<p>'+e.texto+'</p>'+
       '</div>'+
     '</article>'
-  )).join('');
+  );
+  const emptyHtml=(s)=>(
+    '<div class="ev-empty"><h3>Pronto anunciaremos nuevos eventos</h3>'+
+    '<p>Mientras tanto nuestras reuniones siguen abiertas. Escríbenos por WhatsApp.</p>'+
+    '<a class="btn btn-primary" style="margin-top:18px" target="_blank" rel="noopener" href="https://wa.me/'+s.whatsapp+'?text='+encodeURIComponent('Hola, ¿cuándo es el próximo evento en '+s.nombre+'?')+'">Preguntar por eventos</a></div>'
+  );
+  wrap.innerHTML = S.sedes.map(s=>{
+    const cards = (s.eventos||[]).length
+      ? (s.eventos||[]).map(cardHtml).join('')
+      : emptyHtml(s);
+    return '<div class="ev-sede-bloque"><h3 class="ev-sede-nom">'+s.nombre+'</h3><div class="ev-grid reveal">'+cards+'</div></div>';
+  }).join('');
 })();
 
 /* ---------- reveal on scroll ---------- */
@@ -964,15 +947,50 @@ document.querySelectorAll('[data-count]').forEach(el=>cio.observe(el));
   });
 })();
 
-/* ---------- mapa con carga diferida (más rápido el arranque) ---------- */
-(function lazyMap(){
-  const f=document.getElementById('mapa');
-  if(!f||!f.dataset.src) return;
-  const load=()=>{ if(!f.src) f.src=f.dataset.src; };
-  if('IntersectionObserver' in window){
-    const mo=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){load();mo.disconnect();}})},{rootMargin:'250px'});
-    mo.observe(f);
-  } else { load(); }
+/* ---------- contacto con mapa propio por sede ---------- */
+(function renderContacto(){
+  const wrap=document.getElementById('cont-sedes-info');
+  if(!wrap||!S.sedes) return;
+  const icDir='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+  const icTel='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>';
+  const icWa='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.2-1.7-.8-2-.9-.3-.1-.5-.2-.7.1-.2.3-.7.9-.9 1.1-.2.2-.3.2-.6.1-1.6-.8-2.7-1.5-3.7-3.3-.3-.5.3-.5.8-1.5.1-.2 0-.4 0-.5-.1-.2-.7-1.6-.9-2.2-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.2.2 2.1 3.2 5.1 4.5 1.9.8 2.6.9 3.5.8.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.2.2-1.4-.1-.1-.3-.2-.6-.3z"/></svg>';
+  const icFb='<svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6v1.8H16l-.4 2.9h-2.1v7A10 10 0 0 0 22 12z"/></svg>';
+  const pinIc='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>';
+  wrap.innerHTML = S.sedes.map((s,idx)=>{
+    const waMsg=encodeURIComponent('Hola, vi su página y me gustaría saber más sobre las sesiones en '+s.nombre+'.');
+    const waAsistir=encodeURIComponent('Hola, necesito ayuda y quiero asistir a una sesión en '+s.nombre+'.');
+    const fbRow=idx===0?'<div class="cont-row"><div class="ic">'+icFb+'</div><div><b>Facebook</b><a href="https://www.facebook.com/vida.plena.96343?locale=es_LA" target="_blank" rel="noopener">Síguenos en Facebook →</a></div></div>':'';
+    const info='<div class="cont-info">'+
+      '<span class="cont-sede-nom">'+s.nombre+'</span>'+
+      '<div class="cont-row"><div class="ic">'+icDir+'</div><div><b>Dónde estamos</b><span>'+s.dir+'</span></div></div>'+
+      '<div class="cont-row"><div class="ic">'+icTel+'</div><div><b>Llámanos</b><a href="tel:'+s.telHref+'">'+s.tel+'</a></div></div>'+
+      '<div class="cont-row"><div class="ic">'+icWa+'</div><div><b>WhatsApp</b><a href="https://wa.me/'+s.whatsapp+'?text='+waMsg+'" target="_blank" rel="noopener">Escríbenos ahora →</a></div></div>'+
+      fbRow+
+      '<div class="cont-sede-cta">'+
+        '<a class="btn btn-primary" href="https://wa.me/'+s.whatsapp+'?text='+waAsistir+'" target="_blank" rel="noopener">Quiero asistir</a>'+
+        '<a class="btn btn-ghost" href="'+s.mapaGmaps+'" target="_blank" rel="noopener">Cómo llegar</a>'+
+      '</div>'+
+    '</div>';
+    const mapa='<div class="map-wrap">'+
+      '<iframe id="mapa-'+idx+'" title="Ubicación '+s.nombre+'" loading="lazy" data-src="'+s.mapaOsm+'"></iframe>'+
+      '<a class="map-open" href="'+s.mapaGmaps+'" target="_blank" rel="noopener">'+pinIc+' Ver en Google Maps</a>'+
+    '</div>';
+    return '<div class="cont-sede-grid reveal">'+info+mapa+'</div>';
+  }).join('');
+  /* registrar reveals generados */
+  document.querySelectorAll('#cont-sedes-info .reveal').forEach(el=>io.observe(el));
+})();
+
+/* ---------- mapas con carga diferida (uno por sede) ---------- */
+(function lazyMaps(){
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('[data-src]').forEach(f=>{ if(!f.src) f.src=f.dataset.src; });
+    return;
+  }
+  const mo=new IntersectionObserver((es)=>{
+    es.forEach(e=>{ if(e.isIntersecting){ const f=e.target; if(!f.src) f.src=f.dataset.src; mo.unobserve(f); } });
+  },{rootMargin:'250px'});
+  document.querySelectorAll('iframe[data-src]').forEach(f=>mo.observe(f));
 })();
 
 /* ---------- girar tarjetas de sentimientos ---------- */
